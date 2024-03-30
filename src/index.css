@@ -1,0 +1,12 @@
+* {
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    padding: unset;
+    margin: unset;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+}
