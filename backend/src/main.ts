@@ -12,13 +12,15 @@ app.use(compression());
 
 app.use(bodyParser.json());
 
+const PORT = 8080;
+
 const initServer = async () => {
     console.log("Initing server...");
     try {
         const server = http.createServer(app);
-        server.listen(8080, () => console.log("Server is running on port: 3000"));
+        server.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
     }catch (e) {
-        console.log(`Error running server on port 3000. \n${e}`);
+        console.log(`Error running server on port ${PORT}. \n${e}`);
     }
 }
 
