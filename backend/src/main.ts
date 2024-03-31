@@ -3,6 +3,8 @@ import cors from "cors";
 import http from "http";
 import compression from "compression";
 import bodyParser from "body-parser";
+import router from "./router";
+import logger from "./common/logger";
 
 const app = expres();
 
@@ -24,4 +26,7 @@ const initServer = async () => {
     }
 }
 
-initServer();
+initServer().then(() => {
+   logger("Router Inited");
+    app.use("/", router())
+});
