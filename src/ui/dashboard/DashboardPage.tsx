@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
 import Page from '../../components/page/Page';
+import { RootState, useAppDispatch } from '../../state/store';
+import { connect } from 'react-redux';
+import { Car } from '../types';
+import { fetchCars } from '../thunk/fetchCars';
+import { CarsSelectors } from '../entities/carsSelectors';
 
+interface DashboardPageProps {
+    cars: Car[];
+}
 
-const DashboardPage:React.FC = () => {
-
-    const fechAll = async () => {
-        const res = await  fetch("http://localhost:8080/cars", {method: 'post', mode: 'cors'});
-        console.log(res.json());
-    }
-
+const DashboardPage:React.FC<DashboardPageProps> = ({cars}) => {
+    const dispatch = useAppDispatch();
+ 
     useEffect(() => {
-        fechAll();
+        dispatch(fetchCars());
     }, [])
 
     return (
@@ -20,4 +24,12 @@ const DashboardPage:React.FC = () => {
     );
 }
  
-export default DashboardPage;
+const mapStateToProps = (state: RootState): DashboardPageProps => {
+    const cars = CarsSelectors.selectEntities(state);
+    console.log({cars});
+    return {
+        cars: []
+    }
+}
+
+export default connect(mapStateToProps)(DashboardPage);
