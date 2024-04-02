@@ -7,7 +7,7 @@ const appTheme = createTheme({
         },
         common: {
             black: '#131206',
-            white: '#FBF4F5'
+            white: '#FAFAFA'
         }
     },
     typography: {
