@@ -21,6 +21,9 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "frontend/src"
+  ],
+  "exclude": [
+    "backend"
   ]
 }

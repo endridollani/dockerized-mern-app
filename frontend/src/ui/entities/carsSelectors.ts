@@ -1,4 +1,4 @@
-import { RootState } from './../../state/store';
+import { RootState } from '../../state/store';
 import carsAdapter from './carsAdapter';
 
 export namespace CarsSelectors {
