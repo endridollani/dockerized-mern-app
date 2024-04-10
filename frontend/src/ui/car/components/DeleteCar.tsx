@@ -1,10 +1,10 @@
 import { Delete } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import React from 'react';
-import { CarList } from '../../types';
+import { Car } from '../../types';
 
 interface DeleteCarProps {
-    car: CarList.CarListItem;
+    car: Car;
 }
 
 const DeleteCar:React.FC<DeleteCarProps> = 

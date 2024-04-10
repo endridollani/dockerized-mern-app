@@ -4,12 +4,12 @@ import { Box } from '@mui/material';
 import EditCar from './EditCar';
 import DeleteCar from './DeleteCar';
 import { RootState } from '../../../state/store';
-import { CarList } from '../../types';
+import { Car } from '../../types';
 import { CarsUiSelectors } from '../entities/carUiSelectors';
 import { connect } from 'react-redux';
 
 interface CarRowActionsProps {
-    car: CarList.CarListItem;
+    car: Car;
 }
 
 interface CarRowActionsOwnProps {
@@ -17,7 +17,7 @@ interface CarRowActionsOwnProps {
 }
 
 const CarRowActions: React.FC<CarRowActionsProps & CarRowActionsOwnProps> = 
-({ index , car }) => {
+({ car }) => {
     return ( 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '.5rem'}}>
             <EditCar car={car} />
@@ -27,10 +27,10 @@ const CarRowActions: React.FC<CarRowActionsProps & CarRowActionsOwnProps> =
 }
 
 const mapStateToProps = (state: RootState, ownProps: CarRowActionsOwnProps): CarRowActionsProps => {
-    const car = CarsUiSelectors.selectById(state, ownProps.index);
+    const entity = CarsUiSelectors.selectById(state, ownProps.index);
 
     return {
-        car
+        car: entity?.car
     }
 }
  

@@ -5,13 +5,14 @@ import BaseTypography from '../baseTypography/BaseTypography';
 interface ConfirmDialogProps extends DialogProps {
     confirmText: string;
     cancelText: string;
+    onConfirm: () => void;
     confirmBtn?: React.ReactNode;
 }
 
 const ConfirmDialog: React.FC<ConfirmDialogProps> = 
 ( props ) => {
     return ( 
-        <Dialog {...props} >
+        <Dialog {...props} sx={{...props?.sx, height: 'fit-content'}} >
                 <DialogTitle id="alert-dialog-title">
                     <BaseTypography variant='body1' sx={{fontSize: '1.5rem', fontWeight: 600, textTransform: 'capitalize'}}>
                        {props?.title || null}
@@ -21,13 +22,14 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> =
                     <DialogContentText id="alert-dialog-description">
                         {props?.content || null}
                     </DialogContentText>
+                    {props?.children}
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={(e) => props?.onClose?.(e, 'backdropClick')}>{props.cancelText}</Button>
                     {props?.confirmBtn ? (
                         <>{props.confirmBtn}</>
                     ): (
-                        <Button onClick={(e) => props?.onClose?.(e, 'backdropClick')}>
+                        <Button variant='contained' onClick={props.onConfirm}>
                             {props.confirmText}
                         </Button>
                     )}
