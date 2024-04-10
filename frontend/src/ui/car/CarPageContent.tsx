@@ -5,6 +5,7 @@ import { Alert, Box, CircularProgress } from '@mui/material';
 import Page from '../components/page/Page';
 import BaseTypography from '../components/baseTypography/BaseTypography';
 import CarTable from './components/CarTable';
+import CreateCar from './components/CreateCar';
 
 
 interface CarPageContentProps {
@@ -33,7 +34,10 @@ const CarPageContent: React.FC<CarPageContentProps> =
     return (
         <Page headerTitle={headerTitle}>
             <Box sx={{ pb: '.5rem', boxShadow: '0px 4px 4px -5px rgba(0,0,0,0.75)'}}>
-                <BaseTypography variant='subtitle2' sx={{ ml: '.4rem'}}>Vehicles</BaseTypography>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <BaseTypography variant='subtitle2' sx={{ ml: '.4rem'}}>Vehicles</BaseTypography>
+                    <CreateCar />
+                </Box>
             </Box>
             <Box sx={{ mt: '1rem' }}>
                 {content}

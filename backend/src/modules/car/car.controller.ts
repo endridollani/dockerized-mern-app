@@ -12,7 +12,10 @@ const to = (path?: string) => {
 }
 
 export default (router: express.Router) => {
-    logger(`${to("/")}`)
-    router.post(to("/"), CarService.findAll)
+    logger(`${to("/")}`);
+    router.post(to("/"), CarService.findAll);
+    router.patch(to("/update"), CarService.updateOne);
+    router.post(to("/create"), CarService.createOne);
+    router.delete(to("/delete/:id"), CarService.deleteCar);
     return router;
 }

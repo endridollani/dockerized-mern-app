@@ -3,14 +3,14 @@ import React from 'react';
 import BaseTypography from '../baseTypography/BaseTypography';
 
 interface ConfirmDialogProps extends DialogProps {
-    confirmText: string;
-    cancelText: string;
     onConfirm: () => void;
     confirmBtn?: React.ReactNode;
+    confirmText?: string;
+    cancelText?: string;
 }
 
 const ConfirmDialog: React.FC<ConfirmDialogProps> = 
-({confirmText, cancelText, onConfirm, confirmBtn, ...otherProps}) => {
+({confirmText = 'Confirm', cancelText = 'Cancel', onConfirm, confirmBtn, ...otherProps}) => {
     return ( 
         <Dialog {...otherProps} sx={{...otherProps?.sx, height: 'fit-content'}} >
                 <DialogTitle id="alert-dialog-title">
