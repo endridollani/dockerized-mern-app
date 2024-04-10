@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 
-import { RootState, useAppDispatch } from '../../state/store';
-import { Car } from '../types';
+import { useAppDispatch } from '../../state/store';
 import { fetchCars } from '../thunk/fetchCars';
-import { CarsSelectors } from '../entities/carsSelectors';
 import { clearCars } from '../entities/carsSlice';
-import DashboardPageContent from './components/DashboardPageContent';
+import CarPageContent from './CarPageContent';
 
-interface DashboardPageProps {
-    cars: Car[];
-}
-
-const DashboardPage:React.FC<DashboardPageProps> = ({ cars }) => {
+const CarPage:React.FC = () => {
     const dispatch = useAppDispatch();
     const [mounted, setMounted] = useState(false);
     const [errored, setErrored] = useState(false);
@@ -49,16 +42,8 @@ const DashboardPage:React.FC<DashboardPageProps> = ({ cars }) => {
     }
 
     return (
-        <DashboardPageContent loading={loading} errored={errored} cars={cars} />
+        <CarPageContent loading={loading} errored={errored} />
     );
 }
- 
-const mapStateToProps = (state: RootState): DashboardPageProps => {
-    const cars  = CarsSelectors.selectAll(state);
 
-    return {
-        cars
-    }
-}
-
-export default connect(mapStateToProps)(DashboardPage);
+export default CarPage;

@@ -20,7 +20,7 @@ const StyledHeaderBox = styled(Box)(({theme}) => ({
 
 interface PageProps {
     children: React.ReactNode;
-    headerTitle?: string;
+    headerTitle?: React.ReactNode;
 }
 
 const Page: React.FC<PageProps> = (props) => {
@@ -28,9 +28,7 @@ const Page: React.FC<PageProps> = (props) => {
         <StyledPageBox>
             <StyledHeaderBox>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: '.8rem'}}>
-                    <BaseTypography variant='h5'>
-                        {props?.headerTitle && props.headerTitle}
-                    </BaseTypography>
+                    {props?.headerTitle && props.headerTitle}
                 </Box>
             </StyledHeaderBox>
             <Box sx={{ m: '2rem 6rem'}}>

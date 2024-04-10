@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import Page from '../../components/page/Page';
+import Page from '../components/page/Page';
 
 
 const UnauthorizedPage: React.FC = () => {

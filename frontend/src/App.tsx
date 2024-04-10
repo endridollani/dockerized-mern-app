@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import DashboardPage from './ui/dashboard/DashboardPage';
+import CarPage from './ui/car/CarPage';
 import UnauthorizedPage from './ui/unauthorizedPage/UnauthorizedPage';
 import { store } from './state/store';
 import { ThemeProvider } from '@emotion/react';
@@ -14,7 +14,7 @@ const App: React.FC = () => (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path='/dashboard' element={<DashboardPage/>} />
+          <Route path='/dashboard' element={<CarPage />} />
           <Route path='*' element={<UnauthorizedPage/>} />
         </Routes>
       </BrowserRouter>
