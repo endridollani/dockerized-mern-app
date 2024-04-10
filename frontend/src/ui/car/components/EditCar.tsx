@@ -38,19 +38,19 @@ const EditCar: React.FC<EditCarProps> =
                 <Box sx={{ mt: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
                     <Box sx={{ display: 'flex', gap: '1rem'}}>
                         <TextField label="Name" variant='filled' defaultValue={car.Name} required/>
-                        <TextField label="Acceleration" variant='filled' defaultValue={car.Acceleration} required/>
+                        <TextField label="Acceleration" type='number' variant='filled' defaultValue={car.Acceleration} required/>
                     </Box>
                     <Box sx={{ display: 'flex', gap: '1rem'}}>
-                        <TextField label="Cylinders" variant='filled' defaultValue={car.Cylinders} required/>
-                        <TextField label="Displacement" variant='filled' defaultValue={car.Displacement} required/>
+                        <TextField label="Cylinders" type='number' variant='filled' defaultValue={car.Cylinders} required/>
+                        <TextField label="Displacement" type='number' variant='filled' defaultValue={car.Displacement} required/>
                     </Box>
                     <Box sx={{ display: 'flex', gap: '1rem'}}>
-                        <TextField label="Horsepower" variant='filled' defaultValue={car.Horsepower} required/>
-                        <TextField label="Miles per Gallon" variant='filled' defaultValue={car.Miles_per_Gallon} required/>
+                        <TextField label="Horsepower" type='number' variant='filled' defaultValue={car.Horsepower} required/>
+                        <TextField label="Miles per Gallon" type='number' variant='filled' defaultValue={car.Miles_per_Gallon} required/>
                     </Box>
                     <Box sx={{ display: 'flex', gap: '1rem'}}>
                         <TextField label="Origin" variant='filled' defaultValue={car.Origin} required/>
-                        <TextField label="Weight in lbs" variant='filled' defaultValue={car.Weight_in_lbs} required/>
+                        <TextField label="Weight in lbs" type='number' variant='filled' defaultValue={car.Weight_in_lbs} required/>
                     </Box>
                     <DatePicker 
                         label='Year'
