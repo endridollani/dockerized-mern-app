@@ -10,27 +10,27 @@ interface ConfirmDialogProps extends DialogProps {
 }
 
 const ConfirmDialog: React.FC<ConfirmDialogProps> = 
-( props ) => {
+({confirmText, cancelText, onConfirm, confirmBtn, ...otherProps}) => {
     return ( 
-        <Dialog {...props} sx={{...props?.sx, height: 'fit-content'}} >
+        <Dialog {...otherProps} sx={{...otherProps?.sx, height: 'fit-content'}} >
                 <DialogTitle id="alert-dialog-title">
                     <BaseTypography variant='body1' sx={{fontSize: '1.5rem', fontWeight: 600, textTransform: 'capitalize'}}>
-                       {props?.title || null}
+                       {otherProps?.title || null}
                     </BaseTypography>
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {props?.content || null}
+                        {otherProps?.content || null}
                     </DialogContentText>
-                    {props?.children}
+                    {otherProps?.children}
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={(e) => props?.onClose?.(e, 'backdropClick')}>{props.cancelText}</Button>
-                    {props?.confirmBtn ? (
-                        <>{props.confirmBtn}</>
+                    <Button onClick={(e) => otherProps?.onClose?.(e, 'backdropClick')}>{cancelText}</Button>
+                    {confirmBtn ? (
+                        <>{confirmBtn}</>
                     ): (
-                        <Button variant='contained' onClick={props.onConfirm}>
-                            {props.confirmText}
+                        <Button variant='contained' onClick={onConfirm}>
+                            {confirmText}
                         </Button>
                     )}
                 </DialogActions>
