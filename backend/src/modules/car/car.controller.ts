@@ -1,6 +1,6 @@
 import express from 'express';
 import logger from '../../common/logger';
-import { CarService } from './car.service';
+import CarService from './car.service';
 
 const PATH = "/cars";
 
@@ -11,11 +11,24 @@ const to = (path?: string) => {
     return PATH + path;
 }
 
-export default (router: express.Router) => {
-    logger(`${to("/")}`);
-    router.post(to("/"), CarService.findAll);
-    router.patch(to("/update"), CarService.updateOne);
-    router.post(to("/create"), CarService.createOne);
-    router.delete(to("/delete/:id"), CarService.deleteCar);
-    return router;
+export default class CarController{
+    private carService: CarService;
+    private router: express.Router;
+    
+    constructor(router: express.Router){
+        this.carService = new CarService();
+        this.router = router;
+    }
+
+    init(){
+        logger(`${to("/")}`);
+        this.router.post(to("/"), this.carService.findAll);
+        this.router.patch(to("/update"), this.carService.updateOne);
+        this.router.post(to("/create"), this.carService.createOne);
+        this.router.delete(to("/delete/:id"), this.carService.deleteCar);
+    }
+
+    getRouter(){
+        return this.router;
+    }
 }

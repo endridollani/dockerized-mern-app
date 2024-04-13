@@ -1,5 +1,4 @@
 import CarSchema from "./car.schema";
-import connection from "../../db/connection";
+import db, { DATABASE_NAME } from '../../db';
 
-
-export const CarModel = connection.model("car", CarSchema);
+export const CarModel = db.connection.useDb(DATABASE_NAME).model("car", CarSchema);
