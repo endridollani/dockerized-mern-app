@@ -11,8 +11,9 @@ VMM is a CRUD application built using the MERN stack (MongoDB, Express.js, React
 
 ## Technologies Used
 - Frontend:
-  - React.js
+  - React
   - React-Redux
+  - Typescript
   - Material-UI (MUI)
 
 - Backend:
