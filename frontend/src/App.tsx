@@ -4,11 +4,12 @@ import { Provider } from 'react-redux';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 
-import CarPage from './ui/car/CarPage';
 import UnauthorizedPage from './ui/unauthorizedPage/UnauthorizedPage';
 import { store } from './state/store';
 import { ThemeProvider } from '@emotion/react';
 import appTheme from './appTheme';
+import DashboardPage from './ui/dashboard/DashboardPage';
+import CarDetailsPage from './ui/carDetails/CarDetailsPage';
 
 
 const App: React.FC = () => (
@@ -17,7 +18,8 @@ const App: React.FC = () => (
       <LocalizationProvider dateAdapter={AdapterMoment}>
         <BrowserRouter>
           <Routes>
-            <Route path='/dashboard' element={<CarPage />} />
+            <Route path='/dashboard' element={<DashboardPage />} />
+            <Route path='/cardetails/:carId' element={<CarDetailsPage />} />
             <Route path='*' element={<UnauthorizedPage/>} />
           </Routes>
         </BrowserRouter>
